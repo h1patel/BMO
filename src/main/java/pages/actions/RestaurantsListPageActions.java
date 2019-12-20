@@ -33,11 +33,19 @@ public class RestaurantsListPageActions {
 		action.moveToElement(restaurantsListPageLocators.sortByIcon).perform();
 		action.moveToElement(restaurantsListPageLocators.sortByRating).click().perform();
 		action.build();
+		Thread.sleep(1000);
+
 	}
 
 	public void checkMenu() throws Throwable {
-		restaurantsListPageLocators.topRatedRestaurant.click();
-		TestBase.getDriver().wait(500);
+
+		try {
+				restaurantsListPageLocators.topRatedRestaurantwithCommercial.click();
+			} catch (Exception e) {
+				restaurantsListPageLocators.topRatedRestaurant.click();
+		}
+		
+		Thread.sleep(1000);
 	}
 
 }

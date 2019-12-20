@@ -24,6 +24,8 @@ public class RestaurantsListPageLocators {
 	public WebElement sortByRating;
 			
 	@FindBy(xpath = "//div[@class = 'c-listing c-listing--subsequent ']/div/section[1]/a")
-	public WebElement topRatedRestaurant;
+	public WebElement topRatedRestaurantwithCommercial;
 	
+	@FindBy(xpath = "//div[@class = 'g-col g-span8--mid g-span9--wide c-sortBy']/div[4]/div/div/section[1]")
+	public WebElement topRatedRestaurant;
 }

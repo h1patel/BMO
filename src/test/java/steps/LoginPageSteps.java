@@ -10,24 +10,32 @@ public class LoginPageSteps {
 	
 	LoginPageActions loginPageActions = new LoginPageActions();
 	
-	@When("^I use my wrong <userName> and <password>$")
-	public void i_use_my_wrong_userName_and_password(String userName, String password) throws Throwable {
+	@When("^I use my \"([^\"]*)\" and \"([^\"]*)\" to login$")
+	public void i_use_my_and_to_login(String userName, String password) throws Throwable {
 
-		System.out.println(userName + password);
-	/*	loginPageActions.setUsername(userName);
-		loginPageActions.setPassword(password);
-		loginPageActions.clickLogin();
-		Thread.sleep(1000);
-*/
+		try {
+			loginPageActions.setUsername(userName);
+			loginPageActions.setPassword(password);
+			loginPageActions.clickLogin();
+		} catch (Exception e) {
+			System.out.println("------------------------------------------------------------");
+			System.out.println("----------------------CAPTCHA MSG---------------------------");
+			System.out.println("UserName is - " + userName + " and Password is - " + password);
+		}
+
 	}
 
 	@Then("^I should see a error message$")
 	public void i_should_see_a_error_message() throws Throwable {
 
-		System.out.println("***************** Checking Error Msg ******************");
-/*		Assert.assertTrue(loginPageActions.checkError());
-		Thread.sleep(1000);
-*/
+		try {
+			Assert.assertTrue(loginPageActions.checkError());
+		} catch (Exception e) {
+			System.out.println("********************* ErrorChecked Msg *********************");
+			System.out.println("------------------------------------------------------------");
+			
+		}
+
 	}
 
 }

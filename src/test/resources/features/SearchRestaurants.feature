@@ -8,16 +8,11 @@ Background: Navigate to Just-Eat web site
 Given I am on the "https://www.just-eat.co.uk/" Just-Eat homepage
 
 @Login
-Scenario Outline: Nagative Login to User Account
+Scenario: Nagative Login to User Account
 Given I want to login to my user account
-When I use my wrong <userName> and <password>
+When I use my "username@gmail.com" and "password" to login
 Then I should see a error message
 
-Examples:
-|	userName					|	password	|
-|	hansal@gmail.com	|	test111		|
-|	test1@gmail.com		|	test222		|
- 
 @Search-restaurants
 Scenario: Search for restaurants in an area
 Given I want food in "AR51 1AA"

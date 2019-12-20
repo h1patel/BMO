@@ -30,7 +30,7 @@ public class RestaurantsListPageSteps {
 	}
 
 	@Then("^I want to view menu of the restaurant with highest rating$")
-	public void i_want_to_order_from_the_restaurant_with_highest_ratings_and_delivery(String arg1) throws Throwable {
+	public void i_want_to_order_from_the_restaurant_with_highest_rating() throws Throwable {
 	   
 		restaurantsListPageActions.checkMenu();
 	}
